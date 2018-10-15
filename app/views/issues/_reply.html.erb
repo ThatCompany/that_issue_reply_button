@@ -1,0 +1,28 @@
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#content > .contextual').each(function () {
+      var edit = $(this).find('.icon-edit');
+      if (edit.length > 0) {
+        if ($('#update .edit_issue .box > fieldset.tabular').length > 0) {
+          $('<a>', {
+            'class': 'icon icon-reply',
+            text: '<%= l(:button_reply) %>',
+            href: '<%= edit_issue_path(@issue) %>',
+            click: function() {
+              $('#update .edit_issue .box > fieldset.tabular').hide();
+              showAndScrollTo('update', 'issue_notes');
+              return false;
+            }
+          }).prependTo($(this));
+          edit.click(function () {
+            $('#update .edit_issue .box > fieldset.tabular').show();
+            showAndScrollTo('update', 'issue_notes');
+            return false;
+          });
+        } else {
+          edit.text('<%= l(:button_reply) %>').removeClass('icon-edit').addClass('icon-reply');
+        }
+      }
+    });
+  });
+<% end %>
