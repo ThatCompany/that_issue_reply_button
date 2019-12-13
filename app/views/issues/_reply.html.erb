@@ -6,7 +6,7 @@
         if ($('#update .edit_issue .box > fieldset.tabular').length > 0) {
           $('<a>', {
             'class': 'icon icon-reply',
-            text: '<%= l(:button_reply) %>',
+            text: '<%= escape_javascript(l(:button_reply)) %>',
             href: '<%= edit_issue_path(@issue) %>',
             click: function() {
               $('#update .edit_issue .box > fieldset.tabular').hide();
@@ -20,7 +20,7 @@
             return false;
           });
         } else {
-          edit.text('<%= l(:button_reply) %>').removeClass('icon-edit').addClass('icon-reply');
+          edit.text('<%= escape_javascript(l(:button_reply)) %>').removeClass('icon-edit').addClass('icon-reply');
         }
       }
     });
