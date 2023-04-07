@@ -1,6 +1,6 @@
 require 'redmine'
 
-require_dependency 'that_issue_reply_button_hook'
+require File.dirname(__FILE__) +  '/lib/that_issue_reply_button_hook'
 
 Rails.logger.info 'Starting That Issue Reply Button plugin for Redmine'
 
